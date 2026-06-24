@@ -10,35 +10,52 @@ function getComputerChoice() {
     let randNum = Math.floor(Math.random() * 3) + 1;
 
     if (randNum == 1 ) {
-        computerChoice = "Rock";
+        computerChoice = "rock";
     } else if(randNum == 2) {
-        computerChoice = "Paper";
+        computerChoice = "paper";
     } else if (randNum == 3) {
-        computerChoice = "Scissors";
+        computerChoice = "scissors";
     }
 }
 
 function getHumanChoice() {
     const input = prompt("Rock, Paper, or Scissors? ");
+    const lowerdInput = input.toLowerCase();
 
-    if (input == "Rock") {
-        humanChoice = input;
-    } else if (input == "Paper") {
-        humanChoice = input;
-    } else if (input == "Scissors") {
-        humanChoice = input;
+    if (lowerdInput == "rock") {
+        humanChoice = lowerdInput;
+    } else if (lowerdInput == "paper") {
+        humanChoice = lowerdInput;
+    } else if (lowerdInput == "scissors") {
+        humanChoice = lowerdInput;
     } 
 }
 
 function playRound() {
-
-    if (humanChoice == "Rock" && computerChoice == "Rock") {
+    
+    if (humanChoice == "rock" && computerChoice == "rock") {
         roundAnnouncement = "TIE!"
-    } else if (humanChoice = "Rock" && computerChoice == "Paper") {
+    } else if (humanChoice == "rock" && computerChoice == "paper") {
         roundAnnouncement = "You lose! Paper beats Rock!"
         computerScore++;
-    } else if (humanChoice == "Rock" && computerChoice == "Scissors") {
+    } else if (humanChoice == "rock" && computerChoice == "scissors") {
         roundAnnouncement = "You win! Rock beats Scissors!"
+        humanScore++;
+    } else if (humanChoice == "paper" && computerChoice == "paper") {
+        roundAnnouncement = "TIE!"
+    } else if (humanChoice == "paper" && computerChoice == "scissors") {
+        roundAnnouncement = "You lose! Scissors beats Paper!"
+        computerScore++;
+    } else if (humanChoice == "paper" && computerChoice == "rock") {
+        roundAnnouncement = "You win! Paper beats Rock!"
+        humanScore++;
+    } else if (humanChoice == "scissors" && computerChoice == "scissors") {
+        roundAnnouncement = "TIE!"
+    } else if (humanChoice == "scissors" && computerChoice == "rock") {
+        roundAnnouncement = "You lose! Rock beats Scissors!"
+        computerScore++;
+    } else if (humanChoice == "scissors" && computerChoice == "paper") {
+        roundAnnouncement = "You win! Scissors beats Paper!"
         humanScore++;
     }
 }
